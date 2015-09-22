@@ -1,6 +1,7 @@
 package com.sssp.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,6 +24,7 @@ public class Department implements Serializable {
 	
 	private Integer id;
 	private String deptName;
+	private Date createTime;
 	
 	public Department() {
 		super();
@@ -31,6 +33,7 @@ public class Department implements Serializable {
 	public Department(String deptName) {
 		super();
 		this.deptName = deptName;
+		this.createTime = new Date();
 	}
 	
 	@Id
@@ -53,6 +56,14 @@ public class Department implements Serializable {
 		this.deptName = deptName;
 	}
 	
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
 	@Override
 	public String toString() {
 		return "Department [id=" + id + ", deptName=" + deptName + "]";

@@ -35,6 +35,7 @@
 		<property name="sharedCacheMode" value="ENABLE_SELECTIVE" />
 		<property name="jpaProperties">
 			<props>
+				<!-- 字段自动命名(小写) -->
 				<prop key="hibernate.ejb.naming_strategy">${hibernate.ejb.naming_strategy}</prop>
 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>

@@ -6,7 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ssp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<properties>
 		<java-version>1.7</java-version>
 		<org.springframework-version>4.0.3.RELEASE</org.springframework-version>
@@ -48,7 +48,7 @@
 			<artifactId>hibernate-c3p0</artifactId>
 			<version>${hibernate-version}</version>
 		</dependency>
-		
+
 		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -108,13 +108,13 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.5.3</version>
 		</dependency>
-		
-		<!-- c3p0 -->
-		<!-- <dependency>
-			<groupId>c3p0</groupId>
-			<artifactId>c3p0</artifactId>
-			<version>0.9.1.2</version>
-		</dependency> -->
+
+		<!-- jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

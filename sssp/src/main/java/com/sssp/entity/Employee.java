@@ -5,12 +5,14 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * 
@@ -29,6 +31,7 @@ public class Employee implements Serializable {
 	private String name;
 	private Integer age;
 	private Date birthday;
+	private Date createTime;
 	private Department department;
 	
 	public Employee() {
@@ -41,6 +44,7 @@ public class Employee implements Serializable {
 		this.age = age;
 		this.birthday = birthday;
 		this.department = department;
+		this.createTime = new Date();
 	}
 	
 	@Id
@@ -72,7 +76,7 @@ public class Employee implements Serializable {
 		this.age = age;
 	}
 	
-	@Transient
+	@Temporal(TemporalType.DATE)
 	@Column(name = "BIRTHDAY")
 	public Date getBirthday() {
 		return birthday;
@@ -82,7 +86,16 @@ public class Employee implements Serializable {
 		this.birthday = birthday;
 	}
 	
-	@ManyToOne
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "DEPARTMENT_ID")
 	public Department getDepartment() {
 		return department;
