@@ -28,5 +28,25 @@ public class EmployeeServiceImpl implements EmployeeService {
 		Pageable pageable = new PageRequest(pageNo - 1, pageSize, new Sort(new Sort.Order(Direction.DESC, "createTime")));
 		return employeeRepoistory.findAll(pageable);
 	}
+
+	public Employee findByName(String name) {
+		return employeeRepoistory.findByName(name);
+	}
+	
+	public void save(Employee employee) {
+		employeeRepoistory.save(employee);
+	}
+
+	public Employee findById(Integer id) {
+		return employeeRepoistory.findById(id);
+	}
+
+	public void update(Employee employee) {
+		employeeRepoistory.saveAndFlush(employee);
+	}
+
+	public void delete(Integer id) {
+		employeeRepoistory.delete(id);
+	}
 	
 }

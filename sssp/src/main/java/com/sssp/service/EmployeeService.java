@@ -14,4 +14,14 @@ public interface EmployeeService {
 	
 	public Page<Employee> empList(Integer pageNo, Integer pageSize);
 	
+	public Employee findByName(String name);
+	
+	public Employee findById(Integer id);
+	
+	public void save(Employee employee);
+	
+	public void update(Employee employee);
+	
+	public void delete(Integer id);
+	
 }

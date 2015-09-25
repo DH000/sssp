@@ -33,8 +33,8 @@
 					<td><fmt:formatDate value="${emp.birthday}" pattern="yyyy-MM-dd"/></td>
 					<td><fmt:formatDate value="${emp.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 					<td>${emp.department.deptName}</td>
-					<td><a href="">update</a></td>
-					<td><a href="">delete</a></td>
+					<td><a href="${pageContext.request.contextPath}/emp/${emp.id}">update</a></td>
+					<td><a href="javascript:deleteEmp(${emp.id}, '${emp.name}');">delete</a></td>
 				</tr>				
 			</c:forEach>
 			<tr>
@@ -44,5 +44,19 @@
 			</tr>
 		</tbody>
 	</table>
+	<form id="submitForm" action="" method="post">
+		<input type="hidden" name="_method">
+	</form>
+	<script type="text/javascript" src="/js/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+		function deleteEmp(id, name){
+			if(confirm("您确定要删除" + name + "的信息吗？")){
+				var form = $("#submitForm");
+				form.attr("action", "${pageContext.request.contextPath}/emp/" + id);
+				form.find("input[name='_method']").val("DELETE");
+				form.submit();
+			}
+		}
+	</script>
 </body>
 </html>

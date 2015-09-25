@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 
  * desc: TODO
@@ -30,6 +32,8 @@ public class Employee implements Serializable {
 	private Integer id;
 	private String name;
 	private Integer age;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 	private Date createTime;
 	private Department department;

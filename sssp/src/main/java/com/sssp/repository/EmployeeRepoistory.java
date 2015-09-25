@@ -12,4 +12,8 @@ import com.sssp.entity.Employee;
  */
 public interface EmployeeRepoistory extends JpaRepository<Employee, Integer> {
 	
+	public Employee findByName(String name);
+	
+	public Employee findById(Integer id);
+	
 }
